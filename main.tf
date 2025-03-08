@@ -15,9 +15,18 @@ resource "aws_security_group" "ec2_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Allow SSH access (Change CIDR to restrict access)
+  ingress {
+    from_port   = 30000
+    to_port     = 30000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
   # Allow web app traffic on ports 8081-8083
   ingress {
-    from_port   = 8081
+    from_port   = 8080
     to_port     = 8083
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
@@ -35,11 +44,14 @@ resource "aws_security_group" "ec2_sg" {
 # Create an EC2 Instance in a Public Subnet
 resource "aws_instance" "web_server" {
   ami                    = "ami-01bf2bec1a52ce0e1"  # Amazon Linux 2 AMI
-  instance_type          = "t2.micro"
+  instance_type          = "t3.medium"
   key_name               = "clo835-key"  # Replace with your AWS Key Pair name
   subnet_id              = "subnet-0770073b4d6754d85"  # Make sure this subnet is public and inside your VPC
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
-
+  root_block_device {
+    volume_size = 50
+    volume_type = "gp2"
+  }
   tags = {
     Name = "CLO835-Web-Server"
   }
