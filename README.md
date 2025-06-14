@@ -4,7 +4,7 @@ This project automates the provisioning of a multi-tier infrastructure using **T
 
 ---
 
-## 🚀 Key Technologies
+##  Key Technologies
 - **Terraform**: Infrastructure provisioning (VPC, EC2, Security Groups)
 - **Kubernetes (KIND)**: Orchestration of web app and MySQL containers
 - **MySQL**: Backend database
@@ -12,7 +12,7 @@ This project automates the provisioning of a multi-tier infrastructure using **T
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```
 .
 ├── terraform_code/         # AWS Infrastructure as Code
@@ -23,14 +23,14 @@ This project automates the provisioning of a multi-tier infrastructure using **T
 
 ---
 
-## 📦 Kubernetes Manifests
-- ✅ Deployments, Pods, ReplicaSets
-- ✅ Services for MySQL and WebApp
-- ✅ Namespaces, RBAC (role/rolebinding)
+## Kubernetes Manifests
+-  Deployments, Pods, ReplicaSets
+-  Services for MySQL and WebApp
+-  Namespaces, RBAC (role/rolebinding)
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repo
 ```bash
