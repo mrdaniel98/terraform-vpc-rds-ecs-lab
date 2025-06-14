@@ -2,58 +2,74 @@
 
 This project automates the provisioning of a multi-tier infrastructure using **Terraform** and **Kubernetes (KIND)** to deploy a containerized web application with a MySQL backend.
 
+---
+
 ## 🚀 Key Technologies
 - **Terraform**: Infrastructure provisioning (VPC, EC2, Security Groups)
-- **Kubernetes**: Service orchestration and deployment via manifests
-- **MySQL**: Backend database service
-- **GitHub Actions**: For workflow automation (optional setup included)
+- **Kubernetes (KIND)**: Orchestration of web app and MySQL containers
+- **MySQL**: Backend database
+- **GitHub Actions**: Optional CI/CD automation included
 
-## 🧱 Project Structure
+---
 
+## 📂 Project Structure
+```
 .
-├── terraform_code/ # AWS Infrastructure as Code (EC2, SGs, VPC)
+├── terraform_code/         # AWS Infrastructure as Code
 ├── kindcode/
-│ ├── Yamlfiles/ # Kubernetes manifests (webapp + MySQL)
-│ └── terraform_code/ # Additional Terraform setup for KIND
+│   ├── Yamlfiles/          # Kubernetes manifests (Pods, Services, etc.)
+│   └── terraform_code/     # KIND-specific Terraform logic
+```
 
-markdown
-Copy
-Edit
+---
 
 ## 📦 Kubernetes Manifests
-Includes:
-- Deployments and Pods for `webapp` and `mysql`
-- Services (ClusterIP/NodePort)
-- ReplicaSets, Namespaces, and Role Bindings
+- ✅ Deployments, Pods, ReplicaSets
+- ✅ Services for MySQL and WebApp
+- ✅ Namespaces, RBAC (role/rolebinding)
 
-## 🛠️ Setup Guide
+---
+
+## ⚙️ Setup Instructions
 
 ### 1. Clone the Repo
+```bash
 git clone https://github.com/mrdaniel98/terraform-vpc-rds-ecs-lab.git
 cd terraform-vpc-rds-ecs-lab
+```
 
-2. Provision Infra with Terraform
+### 2. Provision AWS Infrastructure with Terraform
+```bash
 cd terraform_code
 terraform init
 terraform apply
+```
 
-4. Deploy to Kubernetes (Kind)
+### 3. Deploy on Kubernetes (using KIND)
+Ensure Docker is running:
+```bash
 cd kindcode/Yamlfiles
 bash init_kind.sh
 kubectl apply -f namespace.yaml
 kubectl apply -f mysql-deployment.yaml
 kubectl apply -f webapp-deployment.yaml
-Note: Ensure Docker is running locally before launching KIND.
+```
 
-✅ Highlights
-Launches infrastructure using code, not clicks
+---
 
-Demonstrates real-world IaC and container deployment workflow
+## 🎯 Highlights
+- Deploys real AWS resources using IaC
+- Uses Kubernetes to manage microservices (web app + MySQL)
+- Demonstrates DevOps skills across cloud + containers
+- Great for interviews, labs, or home labs
 
-Uses clean directory separation for Terraform vs K8s logic
+---
 
-Hands-on learning project for cloud DevOps interviews
+## 👨🏽‍💻 Author
 
-🔗 Author
-Oyetade Olayinka
-GitHub Profile | LinkedIn
+**Oyetade Olayinka**  
+Cloud & DevOps Enthusiast  
+[GitHub](https://github.com/mrdaniel98) • [LinkedIn](https://www.linkedin.com/in/oyetade-olayinka-0120171a2/)
+
+---
+
