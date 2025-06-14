@@ -29,20 +29,15 @@ Includes:
 ## 🛠️ Setup Guide
 
 ### 1. Clone the Repo
-```bash
 git clone https://github.com/mrdaniel98/terraform-vpc-rds-ecs-lab.git
 cd terraform-vpc-rds-ecs-lab
+
 2. Provision Infra with Terraform
-bash
-Copy
-Edit
 cd terraform_code
 terraform init
 terraform apply
-3. Deploy to Kubernetes (Kind)
-bash
-Copy
-Edit
+
+4. Deploy to Kubernetes (Kind)
 cd kindcode/Yamlfiles
 bash init_kind.sh
 kubectl apply -f namespace.yaml
